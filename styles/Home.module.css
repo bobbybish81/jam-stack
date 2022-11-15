@@ -108,6 +108,19 @@
   margin-left: 0.5rem;
 }
 
+.fruit_container {
+  margin: 0 auto;
+  width: 40vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fruit_image {
+  height: 20rem;
+  width: 20rem;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

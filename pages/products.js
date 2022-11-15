@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import styles from '../styles/Home.module.css'
 
 function Products() {
 
@@ -17,24 +18,36 @@ function Products() {
     fetchProducts();
   }, [])
 
-  const items = products?.items;
+  const items = products?.items.map(obj => obj)
+    .map(obj => obj.fields)
 
+  const imageId = products?.items.map(obj => obj)
+    .map(obj => obj.fields)
+      .map(obj => obj.image.sys.id)
+  
   const images = products?.includes.Asset.map(obj => obj.fields)
     .map(obj => obj.file)
       .map(obj => obj.url)
 
+      // console.log('items: ', items)
+      // console.log('imageId: ', imageId) 
+      console.log('img: ', images)
+
   return (
-    items?.map((fruit, index) => {
+    <section className={styles.fruit_container}>
+    {items?.map((fruit, index) => {
+      const regex = new RegExp(fruit.image.sys.id)
+      const imageIndex = images.findIndex(url => url.match(regex))
       return (
       <article key={index}>
-        <Link href={"products/" + fruit.fields.id}>
-          <p>{fruit.fields.name}</p>
-
-          <img src={images[index]} alt={"image:" + fruit.fields.id}></img>
+        <Link href={"products/" + fruit.id}>
+          <h3 className={styles.fruitname}>{fruit.name}</h3>
+          <img className={styles.fruit_image} src={images[imageIndex]} alt={"image:" + fruit.id}></img>
         </Link>
       </article>
       )
-    })
+    })}
+    </section>
 
   )
 }
