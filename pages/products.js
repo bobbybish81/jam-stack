@@ -20,18 +20,10 @@ function Products() {
 
   const items = products?.items.map(obj => obj)
     .map(obj => obj.fields)
-
-  const imageId = products?.items.map(obj => obj)
-    .map(obj => obj.fields)
-      .map(obj => obj.image.sys.id)
   
   const images = products?.includes.Asset.map(obj => obj.fields)
     .map(obj => obj.file)
       .map(obj => obj.url)
-
-      // console.log('items: ', items)
-      // console.log('imageId: ', imageId) 
-      console.log('img: ', images)
 
   return (
     <section className={styles.fruit_container}>

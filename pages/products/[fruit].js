@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import styles from '../../styles/Home.module.css'
 
 function Fruit() {
 
@@ -22,21 +23,34 @@ function Fruit() {
 
   const product = products?.items.filter(fruit => fruit.fields.id == id);
 
+  const images = products?.includes.Asset.map(obj => obj.fields)
+    .map(obj => obj.file)
+      .map(obj => obj.url)
+
   if (product?.length === 0) {
     return (
       <h1>Not as valid product</h1>
     )
   }
+
+  console.log('product: ', product)
   return (
-    product?.map((fruit, index) => {
-     return (
+    <section className={styles.fruit_container}>
+    {product?.map((fruit, index) => {
+      const regex = new RegExp(fruit.fields.image.sys.id)
+      const imageIndex = images.findIndex(url => url.match(regex))
+      return (
       <article key={index}>
-        <h1>{fruit.fields.name}</h1>
-        <h1>{fruit.fields.description}</h1>
-        <h1>{fruit.fields.price}</h1>
+        <img className={styles.fruit_image} src={images[imageIndex]} alt={"image:" + fruit.id}></img>
+        <div>
+          <p><b>Fruit: </b>{fruit.fields.name}</p>
+          <p><b>Description: </b>{fruit.fields.description}</p>
+          <p><b>Price: </b>{fruit.fields.price} kr</p>
+        </div>
       </article>
-     ) 
-    })
+      )
+    })}
+    </section>
   )
 }
 
