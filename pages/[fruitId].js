@@ -6,7 +6,7 @@ const contentful = require( 'contentful')
 const client = contentful.createClient({
   space: 'baai5u558zt5',
   environment: 'master',
-  accessToken: process.env.PRODUCTS_PUBLISH_API_KEY
+  accessToken: 'JUiO9lyPdlN0BMUgPtJmpRMTbrm6yvRH8JlCeBfzoj4'
 })
 
 export async function getStaticPaths () {

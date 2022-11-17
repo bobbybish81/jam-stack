@@ -12,7 +12,7 @@ export default function Items({items, images}) {
       <article key={index}>
         <Link href={"" + fruit.id}>
           <h3 className={styles.fruitname}>{fruit.name}</h3>
-          <img className={styles.fruit_image} src={images[imageIndex]} alt={"image:" + fruit.id}></img>
+          <img className={styles.fruit_image} src={images[imageIndex]} alt={"image:" + fruit.id}/>
         </Link>
       </article>
       )

@@ -6,7 +6,7 @@ export default function Fruit({product, images}) {
   return (
     <>
     <header>
-        <h1 className={styles.main_heading} >CIKC Reloaded's Online Fruit Store</h1>
+        <h1 className={styles.main_heading} >CIKC Reloadeds Online Fruit Store</h1>
     </header>
     <section className={styles.fruit_container}>
       {product?.map((fruit, index) => {
@@ -15,7 +15,7 @@ export default function Fruit({product, images}) {
       return (
         <article key={index}>
           <h3 className={styles.fruitname}>{fruit.fields.name}</h3>
-          <img className={styles.fruit_image} src={images[imageIndex]} alt={"image:" + fruit.id}></img>
+          <img className={styles.fruit_image} src={images[imageIndex]} alt={"image:" + fruit.id}/>
           <div>
             <p><b>Description: </b>{fruit.fields.description}</p>
             <p><b>Price: </b>{fruit.fields.price} kr</p>

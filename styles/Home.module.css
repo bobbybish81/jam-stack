@@ -109,7 +109,7 @@
 }
 
 .main_heading {
-  margin: 1rem auto;
+  margin: 1rem auto 3rem auto;
 }
 
 .fruit_container {
@@ -123,6 +123,7 @@
 .fruit_image {
   height: 20rem;
   width: 20rem;
+  margin: 0 2rem 2rem;
 }
 
 @media (max-width: 600px) {

@@ -7,7 +7,7 @@ const contentful = require( 'contentful')
 const client = contentful.createClient({
   space: 'baai5u558zt5',
   environment: 'master',
-  accessToken: process.env.PRODUCTS_PUBLISH_API_KEY
+  accessToken: 'JUiO9lyPdlN0BMUgPtJmpRMTbrm6yvRH8JlCeBfzoj4'
 })
 
 export async function getStaticProps () {
@@ -31,7 +31,7 @@ export default function Home({ products }) {
   return (
     <>
       <header>
-        <h1 className={styles.main_heading} >CIKC Reloaded's Online Fruit Store</h1>
+        <h1 className={styles.main_heading} >CIKC Reloadeds Online Fruit Store</h1>
       </header>
       <Items items={items} images={images}/>
     </>
