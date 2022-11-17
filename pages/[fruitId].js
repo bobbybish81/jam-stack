@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import Fruit from '../components/Fruit'
 
 const contentful = require( 'contentful')
@@ -6,7 +5,7 @@ const contentful = require( 'contentful')
 const client = contentful.createClient({
   space: 'baai5u558zt5',
   environment: 'master',
-  accessToken: 'JUiO9lyPdlN0BMUgPtJmpRMTbrm6yvRH8JlCeBfzoj4'
+  accessToken: "JUiO9lyPdlN0BMUgPtJmpRMTbrm6yvRH8JlCeBfzoj4"
 })
 
 export async function getStaticPaths () {
@@ -24,20 +23,19 @@ export async function getStaticProps (context) {
   const fruitId = context.params.fruitId;
   const products = await client.getEntries()
   const product = products?.items.filter(fruit => fruit.fields.id == fruitId);
+  const images = products?.includes.Asset.map(obj => obj.fields)
+  .map(obj => obj.file)
+    .map(obj => obj.url)
 
   return {
     props: {
-      products: products,
       product: product,
+      images: images,
     }
   }
 }
 
-export default function Fruits ({ products, product }) {
-
-  const images = products?.includes.Asset.map(obj => obj.fields)
-  .map(obj => obj.file)
-    .map(obj => obj.url)
+export default function Fruits ({ product, images }) {
 
   if (product?.length === 0) {
     return (

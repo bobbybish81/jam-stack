@@ -126,6 +126,35 @@
   margin: 0 2rem 2rem;
 }
 
+.oos_text {
+  color: red;
+}
+
+.purchase_container {
+  margin-top: 2rem;
+  display: grid;
+}
+
+.quantity {
+  width: 15%;
+  margin: 0.25rem auto 1rem auto;
+}
+
+.purchase_btn {
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: green;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.home_link {
+  margin-top: 5rem;
+  color: #352bc2;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

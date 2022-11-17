@@ -11,7 +11,7 @@ export default function Items({items, images}) {
       return (
       <article key={index}>
         <Link href={"" + fruit.id}>
-          <h3 className={styles.fruitname}>{fruit.name}</h3>
+          <h2 className={styles.fruitname}>{fruit.name}</h2>
           <img className={styles.fruit_image} src={images[imageIndex]} alt={"image:" + fruit.id}/>
         </Link>
       </article>

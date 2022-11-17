@@ -7,27 +7,26 @@ const contentful = require( 'contentful')
 const client = contentful.createClient({
   space: 'baai5u558zt5',
   environment: 'master',
-  accessToken: 'JUiO9lyPdlN0BMUgPtJmpRMTbrm6yvRH8JlCeBfzoj4'
+  accessToken: "JUiO9lyPdlN0BMUgPtJmpRMTbrm6yvRH8JlCeBfzoj4"
 })
 
 export async function getStaticProps () {
   const products = await client.getEntries()
-  return {
-    props: {
-      products
-    }
-  }
-}
-
-export default function Home({ products }) {
-
   const items = products?.items.map(obj => obj)
     .map(obj => obj.fields)
-  
   const images = products?.includes.Asset.map(obj => obj.fields)
     .map(obj => obj.file)
       .map(obj => obj.url)
 
+  return {
+    props: {
+      items: items,
+      images: images
+    }
+  }
+}
+
+export default function Home({ items, images }) {
   return (
     <>
       <header>

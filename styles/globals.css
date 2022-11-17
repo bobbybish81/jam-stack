@@ -16,6 +16,16 @@ a {
   text-align: center;
 }
 
+
+button {
+  border: none;
+  border-radius: 0.5rem;
+}
+
+select {
+  height: 2rem;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
