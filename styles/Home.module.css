@@ -108,6 +108,10 @@
   margin-left: 0.5rem;
 }
 
+.main_heading {
+  margin: 1rem auto;
+}
+
 .fruit_container {
   margin: 0 auto;
   width: 40vw;
