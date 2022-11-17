@@ -36,7 +36,7 @@ export default function Fruit({product, images}) {
                   <option>4</option>
                   <option>5</option>
                 </select>
-                <button className={styles.purchase_btn}>Make Purchase</button>
+                <button className={styles.purchase_btn} onClick={redirectHome}>Make Purchase</button>
               </div>
               : <h3 className={styles.oos_text}>Out of Stock</h3>}
           </div>
